@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Override Tool methods</Title>
+			<Shortcut>overrideTool</Shortcut>
+			<Description>Generates override methods for Tool class children</Description>
+			<Author>Ty</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Language="CSharp">
+				<![CDATA[
+        public override void SetUp(Transform tankTransform)
+        {
+            base.SetUp(tankTransform);
+			// have fun :)
+        }
+
+        public override void UseTool()
+        {
+            base.UseTool();
+        }
+
+        public override void ResetValues(Transform tankTransform) 
+		{
+            base.ResetValues(tankTransform);
+        }
+        ]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

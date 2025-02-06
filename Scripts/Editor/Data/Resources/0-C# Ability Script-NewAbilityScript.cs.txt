@@ -1,0 +1,8 @@
+using UnityEngine;
+
+public class #SCRIPTNAME# : Ability
+{
+    public void PerformAbility()
+    {
+    }
+}

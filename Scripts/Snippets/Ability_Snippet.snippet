@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>AbilityPrep</Title>
+            <Shortcut>TanklikeAbility</Shortcut>
+            <Description>Code snippet for creating a new Unity script that inherits from Ability with a CreateAssetMenu attribute</Description>
+            <Author>Tanklike</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>ClassName</ID>
+                    <ToolTip>Delete the already existing class definition and replace the name of the new script to your class's name</ToolTip>
+                    <Default>NewAbilityClassName</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp"><![CDATA[
+using UnityEngine;
+using TankLike.Combat;
+
+namespace TankLike.Combat
+{
+    [CreateAssetMenu(fileName = Ability.PREFIX + "CamalCaseName", menuName = Ability.DIRECTORY + "Name")]
+    public class $ClassName$ : Ability
+    {
+        [Header("Special Values")]
+        public override void SetUp(Transform tankTransform)
+        {
+            base.SetUp(tankTransform);
+        }
+    
+        public override void OnActivateAbility()
+        {
+            base.OnActivateAbility();
+        }
+    }
+}
+]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

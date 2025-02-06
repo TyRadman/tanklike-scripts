@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Cheat</Title>
+            <Shortcut>newCheat</Shortcut>
+            <Description>Generates all necessary methods for a cheat</Description>
+            <Author>Tanklike</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>ClassName</ID>
+                    <ToolTip>Generates all necessary methods for a cheat</ToolTip>
+                    <Default>NewAbilityClassName</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+				<![CDATA[
+        public override void SetUpInput(int playerIndex)
+        {
+            base.SetUpInput(playerIndex);
+        }
+
+        public override void DisposeInput(int playerIndex)
+        {
+            base.DisposeInput(playerIndex);
+        }
+
+        public override void ActivateCheat(InputAction.CallbackContext _)
+        {
+            base.ActivateCheat(_);
+        }
+
+        public override void EnableCheat(bool enable)
+        {
+            base.EnableCheat(enable);
+        }
+
+        public override void PerformCheat()
+        {
+            base.PerformCheat();
+        }
+]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
