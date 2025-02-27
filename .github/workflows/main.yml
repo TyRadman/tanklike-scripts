@@ -14,6 +14,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Set up Git identity
+        run: |
+          git config --global user.email "timdesign1996@gmail.com"
+          git config --global user.name "Ty Radman"
+
       - name: Make script executable
         run: chmod +x .github/workflows/generate_folder_structure.sh
 
