@@ -1,0 +1,26 @@
+name: Generate Folder Structure
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  generate-folder-structure:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Generate Folder Structure
+        run: |
+          # Bash script to generate folder structure in markdown format
+          ./generate_folder_structure.sh
+
+      - name: Commit and Push Changes
+        run: |
+          git add folder_structure.md
+          git commit -m "Update folder structure"
+          git push
