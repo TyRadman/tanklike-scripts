@@ -19,7 +19,7 @@ jobs:
 
       - name: Generate Folder Structure
         run: |
-          .github/workflows/generate_folder_structure.sh/
+          .github/workflows/generate_folder_structure.sh
 
       - name: Commit and Push Changes
         run: |
