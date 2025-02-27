@@ -34,10 +34,53 @@
   - **Audacity** – Audio editing  
   - **Notion & Trello** – Project management  
 
-## Game Build
-A playable version of **Tanklike** is available in the **[Releases](https://github.com/TyRadman/Tanklike/releases)** section.
+## Coding Standards
+This project follows a structured coding standard for better maintainability and clarity across all team members. For detailed guidelines, see the [Coding Standards document](http://www.example.com). // FILL THIS
 
-## Scripts Overview
+## Repository Structure
+This repository only contains scripts. No assets, prefabs, or scenes are included.
+```graphql
+Scripts/
+|--- Combat
+|   |--- Abilities
+|   |--- Ammunition
+|   |--- Destructibles
+|   |--- Editor
+|   |--- Elements
+|   |--- ShotsConfigurations
+|   |--- Tools
+|--- Editor
+|   |--- CustomSearcher
+|   |--- GameEditor
+|   |--- Inspector
+|   |--- RoomPainter
+|--- EditorTools
+|--- Environment
+|   |--- Collectables
+|   |--- Editor
+|   |--- Interactables
+|   |--- Items
+|   |--- LevelGenerator
+|   |   |--- LevelPainter
+|   |   |--- MapMaker
+|   |--- Props
+|   |--- Rooms
+|   |--- Shops
+|--- Global
+|--- LevelGeneration
+|--- MainMenu
+|--- Misc
+|--- PlayTest
+|--- PoolingSystem
+|--- Snippets
+|--- Sound
+|--- Testing
+|--- UI
+|--- UnitControllers
+|--- Utils
+```
+
+## Key Systems and Implementations
 ### Gameplay Systems
 - **TankController.cs** – Handles player movement, aiming, and shooting.
 - **EnemyAI.cs** – Governs enemy behavior, including pathfinding and attack patterns.
@@ -59,6 +102,7 @@ A playable version of **Tanklike** is available in the **[Releases](https://gith
 
 ## Additional Notes
 - This repository contains **code documentation**, not a public source code repository.
+- For more details and some gameplay footage, visit my [Portfolio](https://tyradman.github.io/static-portfolio/) or view the [showcase video on Youtube](https://www.youtube.com/watch?v=EbcFn5lR5Ao&ab_channel=TyRadman).
 - If you're interested in playing the game, **download the latest release from [Releases](https://github.com/TyRadman/Tanklike/releases).**
 
 ---
