@@ -14,9 +14,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Make script executable
+        run: chmod +x ./generate_folder_structure.sh
+
       - name: Generate Folder Structure
         run: |
-          # Bash script to generate folder structure in markdown format
           ./generate_folder_structure.sh
 
       - name: Commit and Push Changes
