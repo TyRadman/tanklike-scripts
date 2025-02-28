@@ -162,16 +162,25 @@ Scripts/
 |`List<WaveData>` Waves| Enemy waves that should be spawned in the level.|
 |`ParticleSystem` WeatherVFX| The weather particle effects that should play in the level.|
 - **Skill Tree** – Handles the players' in-run upgrades and progression. Unlike most of the Rogue-likes where players are given random options for upgrades or loot, in Tanklike, the player is given more agency over the type of upgrades they want to go for. The specific upgrade, of course, will be the player's choice from a random set of two options. For that, the UI representation of the skill tree has to be procedural and built and updated based on the player character at run-time which is what this system handles.
-![](Tanklike-SkillTree.gif)
+![A clip of the Skill Tree](Tanklike-SkillTree.gif)
 
 
 ### Tools & Utilities
-- **MapMaker.cs** – A custom in-editor level design tool for quick iteration.
-- **DebugTools.cs** – Provides debugging utilities for performance monitoring.
+- **Map Maker** – A custom in-editor level design tool for quick iteration.
+- **Game Editor** – Provides debugging utilities for performance monitoring.
+- **Behavior Tree Editor** - 
+- **Custom Attributes** - A set of attributes to save time and help prevent null reference errors:
 
-### Visual & Effects
-- **ShaderManager.cs** – Manages custom shaders for visual effects.
-- **PostProcessingController.cs** – Controls post-processing effects to enhance visuals.
+|Attribute|Description|
+|-|-|
+|`[AllowCreationIfNull(string path)]`| Allows the creation of an asset of the specified type at the provided path if the field is null. This only works for asset data types (e.g., ScriptableObjects).|
+|`[EditorName(string displayName]`| Assigns a custom name to the variable for display in the Unity Inspector.|
+|`[HasInterface(Type interfaceType)]`| Highlights the field in red if the assigned reference does not implement the specified interface type.|
+|`[OnChildren(bool forceReference)]`| Automatically assigns a reference to a component of the required type from the children of the GameObject. If `forceReference` is true, a new child GameObject with the required component is created if none exists.|
+|`[OnSelf(bool forceReference)]`| Automatically assigns a reference to a component of the required type from the GameObject itself. If forceReference is true, the component is added to the GameObject if it doesn't already exist.|
+|`[Required]`| Highlights the field in red in the Inspector if the value is null.|
+|`[ReadOnly]`| Makes the field non-editable in the Inspector.|
+
 
 ## Additional Notes
 - This repository contains **code documentation**, not a public source code repository.
