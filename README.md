@@ -39,6 +39,10 @@ This project follows a structured coding standard for better maintainability and
 
 ## Repository Structure
 This repository only contains scripts. No assets, prefabs, or scenes are included.
+
+<details>
+  <summary>Show repo structure</summary>
+
 ```graphql
 Scripts/
 |--- Combat
@@ -67,30 +71,99 @@ Scripts/
 |   |--- Rooms
 |   |--- Shops
 |--- Global
-|--- LevelGeneration
-|--- MainMenu
+|   |--- Attributes
+|   |--- Bosses
+|   |--- Camera
+|   |--- Cheats
+|   |--- Editor
+|   |--- Enemies
+|   |--- Input
+|   |--- Interfaces
+|   |--- LoadingScreen
+|   |--- MainMenu
+|   |--- Others
+|   |--- Players
+|   |--- PoolingSystem
+|   |--- Reports
+|   |--- SceneControllers
+|   |--- Screen
 |--- Misc
 |--- PlayTest
-|--- PoolingSystem
 |--- Snippets
 |--- Sound
 |--- Testing
+|   |--- LevelDesign
+|   |--- Navigation
+|   |--- Playground
 |--- UI
+|   |--- _Common
+|   |--- AbilitySelection
+|   |--- HealthBars
+|   |--- HUD
+|   |   |--- DamageScreen
+|   |   |--- HealthBar
+|   |   |--- Notifications
+|   |   |--- OffScreenIndicators
+|   |--- InGame
+|   |   |--- DamagePopUp
+|   |   |--- Crosshair
+|   |--- Inputs
+|   |--- Inventory
+|   |--- MiniMap
+|   |--- PauseMenu
+|   |--- Shop
+|   |--- SkillTree
+|   |--- Tutorial
 |--- UnitControllers
+|   |--- BaseClasses
+|   |   |--- TankParts
+|   |   |--- SpecialPartsAnimations
+|   |--- Bosses
+|   |--- Core
+|   |--- Editor
+|   |--- Enemies
+|   |--- MiniPlayers
+|   |--- Players
+|   |   |--- Crosshair
+|   |   |--- Indicators
+|   |   |--- MiniTankPlayer
+|   |   |--- PlayerModifiableStats
+|   |   |--- Vanguard
+|   |--- Summons
 |--- Utils
 ```
+</details>
+
 
 ## Key Systems and Implementations
 ### Gameplay Systems
-- **TankController.cs** – Handles player movement, aiming, and shooting.
-- **EnemyAI.cs** – Governs enemy behavior, including pathfinding and attack patterns.
-- **Projectile.cs** – Handles bullet movement, collision, and damage calculations.
-- **HealthSystem.cs** – Manages health and damage interactions.
+- **Unit Controller** – A component that governs all the components needed to control a unit in the game. It handles the unit's shooting, movement, visuals, stats, controls, constraints, and more.
+- **Enemy AI** – Implemented using a [custom Behavior Tree Framework](https://github.com/TyRadman/BehaviorTree) that I developed. It's a decoupled system from the game's systems, which makes it easy to implement and change enemy behavior in run-time. 
+- **Ammunition** – Handles projectile, rocket, and laser movement, collision, and damage calculations. These ammunition types have different modifiers in the form of `scriptable objects` that makes it easy to change their behaviors. For example, projectiles have an `OnImpact` modifier which can a `OneTargetModifier`, `AOEModifier`, `PiercingModifer`, `SpawnProjectileModifier`, and `MultipleImpactModifier` which can hold multiple modifier references.
+- **Health System** – Manages health and damage interactions. Every method in the system that modifies an entity's health, calls `OnHealthChanged(current, previous, max)` event, which triggers UI changes, visual effects on the entity, and any other listeners to the event.
 
 ### Rogue-like Mechanics
-- **UpgradeSystem.cs** – Implements skill progression and ability scaling.
-- **RandomLevelGenerator.cs** – Procedural level generation for replayability.
-- **ItemDrops.cs** – Handles enemy loot drops and power-ups.
+- **Room Painters** –  A system that filters a room's tiles based on provided rules, such as identifying corners for crates or strategic placement for enemies where obstacles, other enemies placement and the players' positioning is taken into account.
+- **Level Generator** – While specific rooms layouts are premade, the build of the overall map is procedural. The system is given a `Level Data` which holds the following:
+
+|Data|Description|
+|-|-|
+|`String` LevelName | The name of the level.|
+|`MapTileStyler` Styler| Holds data related to how the level generated should be styled. It determines the assets and textures to be used in the level generation process.|
+|`MapTiles_SO` BossRoom | The map asset for the boss room, as different bosses will have different room layouts.|
+|`BossRoomGate` BossGate | A reference to the prefab of the boss room gate. |
+|`BossData` BossData | A Scriptable Object that holds data about the boss of the level, including the prefab and stats of the boss.|
+|`Audio` LevelMusic | The background music to play in the level.|
+|`List<MapTiles_SO>` MapsPool | A list of premade map assets that should be generated. The map asset holds an array of enum values representing the type of tile, and `x, y` coordinates to represent the tile's position on the room's map.|
+|`Vector2Int` DroppersRange | The number of dropper instances that should be spawned in a room (such as crates or rocks).|
+|`float` CratesToRockChance | The ratio between spawning a crate vs a rock for a dropper, with the crate being more valuable than the rock.|
+|`Vector2Int` ExplosivesRange | The number of explosive props that should be placed in a room. Explosives are props that expode upon impact by either the players or enemies -- they deal damage to both parties.|
+|`Vector2Int` DestructibleWallsRange | The number of destructible walls in a room room.|
+|`List<WaveData>` Waves| Enemy waves that should be spawned in the level.|
+|`ParticleSystem` WeatherVFX| The weather particle effects that should play in the level.|
+- **Skill Tree** – Handles the players' in-run upgrades and progression. Unlike most of the Rogue-likes where players are given random options for upgrades or loot, in Tanklike, the player is given more agency over the type of upgrades they want to go for. The specific upgrade, of course, will be the player's choice from a random set of two options. For that, the UI representation of the skill tree has to be procedural and built and updated based on the player character at run-time which is what this system handles.
+![](Tanklike-SkillTree.gif)
+
 
 ### Tools & Utilities
 - **MapMaker.cs** – A custom in-editor level design tool for quick iteration.
