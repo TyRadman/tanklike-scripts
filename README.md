@@ -176,6 +176,6 @@ Scripts/
 ## Additional Notes
 - This repository contains **code documentation**, not a public source code repository.
 - For more details and some gameplay footage, visit my [Portfolio](https://tyradman.github.io/static-portfolio/) or view the [showcase video on Youtube](https://www.youtube.com/watch?v=EbcFn5lR5Ao&ab_channel=TyRadman).
-- If you're interested in playing the game, **download the latest release from [Releases](https://github.com/TyRadman/Tanklike/releases).**
+- If you're interested in playing the game, **download the latest release from [Releases](https://github.com/TyRadman/tanklike-scripts/releases).** (TO BE IMPLEMENTED)
 
 ---
