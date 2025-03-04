@@ -41,7 +41,9 @@ This project follows a structured coding standard for better maintainability and
 This repository only contains scripts. No assets, prefabs, or scenes are included.
 
 <details>
-  <summary>Show repo structure</summary>
+  <summary>
+    <strong>SHOW REPO STRUCTURE</strong>
+  </summary>
 
 ```graphql
 Scripts/
@@ -185,6 +187,6 @@ Scripts/
 ## Additional Notes
 - This repository contains **code documentation**, not a public source code repository.
 - For more details and some gameplay footage, visit my [Portfolio](https://tyradman.github.io/static-portfolio/) or view the [showcase video on Youtube](https://www.youtube.com/watch?v=EbcFn5lR5Ao&ab_channel=TyRadman).
-- If you're interested in playing the game, **download the latest release from [Releases](https://github.com/TyRadman/tanklike-scripts/releases).** (TO BE IMPLEMENTED)
+- If you're interested in playing the game, **download the latest release from [Releases](https://github.com/TyRadman/tanklike-scripts/releases).**
 
 ---
