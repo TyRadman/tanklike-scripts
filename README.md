@@ -35,7 +35,7 @@
   - **Notion & Trello** – Project management  
 
 ## Coding Standards
-This project follows a structured coding standard for better maintainability and clarity across all team members. For detailed guidelines, see the [Coding Standards document](http://www.example.com). // FILL THIS
+This project follows a structured coding standard for better maintainability and clarity across all team members. For detailed guidelines, see the [Coding Standards document](codingStandards.md).
 
 ## Repository Structure
 This repository only contains scripts. No assets, prefabs, or scenes are included.
